@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { signIn, useSession, getProviders } from "next-auth/react";
+import Loading from "@components/loading/Loading";
 
 const page = () => {
   const { data: session } = useSession();
@@ -27,8 +28,8 @@ const page = () => {
   return (
     <div className="flex flex-col gap-5 text w-full h-[80vh] items-center justify-center">
       {/* FIX--replace with loading component */}
-      <h2 className="auth_title">Choose your prefer provider</h2>
-      {!providers && <h1>Loading...</h1>}
+      <h2 className="auth_title">Choose your prefered provider</h2>
+      {providers && <Loading />}
       {providers &&
         Object.values(providers).map((provider: any) => (
           <button

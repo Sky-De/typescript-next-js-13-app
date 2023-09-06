@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
+import Image from "next/image";
+import Avatar from "@public/img/Avatar.png";
 
 const Header = () => {
   const router = useRouter();
@@ -35,13 +37,23 @@ const Header = () => {
         >
           {session?.user ? "LogOut" : "LogIn"}
         </button>
-        {session && (
+        {session?.user && (
           <button
             onClick={handleProfileBtn}
             className="authBtn px-3 py-1 rounded-lg"
           >
             Profile
           </button>
+        )}
+        {session && (
+          // FIX--add user image to src
+          <Image
+            src={Avatar}
+            width={37}
+            height={37}
+            className="rounded-full"
+            alt="profile"
+          />
         )}
       </div>
     </header>
