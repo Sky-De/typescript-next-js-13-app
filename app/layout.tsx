@@ -17,10 +17,7 @@ const rootLayout = ({ children }: Props): JSX.Element => {
       <body>
         <Providers>
           <Header />
-          <div className="main">
-            <div className="grandiant" />
-          </div>
-          <main className="app">{children}</main>
+          <main className="app bg-gray py-16">{children}</main>
         </Providers>
       </body>
     </html>

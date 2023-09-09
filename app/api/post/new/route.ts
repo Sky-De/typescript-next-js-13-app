@@ -1,0 +1,16 @@
+import PostModel from "@models/post";
+import { connectToDB } from "@utils/database";
+import { NextResponse } from "next/server";
+
+export const POST = async (req: Request) => {
+  const { aiName, description, tags, creatorId } = await req.json();
+  try {
+    const newPost = new PostModel({ aiName, description, tags, creatorId });
+    connectToDB();
+    await newPost.save();
+
+    return new Response(JSON.stringify(newPost), { status: 201 });
+  } catch (error) {
+    return new Response("Faild to create new post", { status: 500 });
+  }
+};

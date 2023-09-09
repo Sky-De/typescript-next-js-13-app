@@ -10,7 +10,8 @@ import Avatar from "@public/img/Avatar.png";
 const Header = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log(session?.user);
+  // console.log(session?.user);
+  // FIX-remove this log
 
   const handleAuth = () => {
     // isLogin
@@ -26,42 +27,28 @@ const Header = () => {
     router.push("/", { scroll: false });
   };
 
-  const handleProfileBtn = () => {
-    router.push("/profile", { scroll: false });
-  };
-
   return (
-    <header className="shadow-lg py-1 md:py-2">
+    <header className="shadow-lg py-1 md:py-2 w-full">
       <div className="header_content max-w-1400 mx-auto flex items-center gap-3 py-1 px-3">
-        <h1
-          title="Home"
-          className="logo cursor-pointer"
-          onClick={handleHomeBtn}
-        >
-          AI-Share
-        </h1>
+        <Link href="/">
+          <h1
+            title="Home"
+            className="logo cursor-pointer"
+            onClick={handleHomeBtn}
+          >
+            AI-Share
+          </h1>
+        </Link>
 
         {session?.user && (
-          <>
-            <Link href="/profile" className="ml-auto" title="profile">
-              <Image
-                className="rounded-full"
-                width={45}
-                height={45}
-                src={session.user.image || Avatar}
-                alt="profile"
-              />
-            </Link>
-            <Link
-              title="create new post"
-              href="/create-post"
-              className="callToActionBtn rounded-md text-white hover:translate-y-[-2px] ease-in duration-100"
-            >
-              Create Post
-            </Link>
-          </>
+          <Link
+            title="create new post"
+            href="/create-post"
+            className="callToActionBtn rounded-md text-white hover:translate-y-[-2px] ease-in duration-100 ml-auto"
+          >
+            Create Post
+          </Link>
         )}
-
         <button
           title="auth"
           onClick={handleAuth}
@@ -71,6 +58,18 @@ const Header = () => {
         >
           {session?.user ? "LogOut" : "LogIn"}
         </button>
+
+        {session?.user && (
+          <Link href="/profile" title="profile">
+            <Image
+              className="rounded-full"
+              width={45}
+              height={45}
+              src={session.user.image || Avatar}
+              alt="profile"
+            />
+          </Link>
+        )}
       </div>
     </header>
   );

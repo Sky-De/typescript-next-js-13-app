@@ -89,7 +89,7 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
 .black_btn {
@@ -335,54 +335,60 @@
 .logo {
   font-size: 1.85rem;
   font-weight: bold;
-  background: #f8ffe8;
-  background: hsla(33, 100%, 53%, 1);
+  /* background: hsla(172, 85%, 74%, 1);
 
   background: linear-gradient(
-    90deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    60deg,
+    hsl(172, 85%, 74%) 0%,
+    hsla(319, 74%, 64%, 1) 100%
   );
 
   background: -moz-linear-gradient(
-    90deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    60deg,
+    hsla(172, 85%, 74%, 1) 0%,
+    hsla(319, 74%, 64%, 1) 100%
   );
 
   background: -webkit-linear-gradient(
-    90deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    60deg,
+    hsla(172, 85%, 74%, 1) 0%,
+    hsla(319, 74%, 64%, 1) 100%
   );
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#ff930f", endColorstr="#fff95b", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#83F5E5", endColorstr="#E761BD", GradientType=1 );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 
 /* call to actin btn */
 .callToActionBtn {
   padding: 0.25rem 1rem;
-  background: hsla(33, 100%, 53%, 1);
+  background-color: hsla(319, 74%, 64%, 1);
+}
+
+/* title gradiants */
+.titleGradiant {
+  background: hsla(172, 85%, 74%, 1);
 
   background: linear-gradient(
-    45deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    60deg,
+    hsl(172, 85%, 74%) 0%,
+    hsla(319, 74%, 64%, 1) 35%
   );
 
   background: -moz-linear-gradient(
-    45deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    60deg,
+    hsla(172, 85%, 74%, 1) 0%,
+    hsla(319, 74%, 64%, 1) 35%
   );
 
   background: -webkit-linear-gradient(
-    45deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    60deg,
+    hsla(172, 85%, 74%, 1) 0%,
+    hsla(319, 74%, 64%, 1) 35%
   );
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF930F", endColorstr="#FFF95B", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#83F5E5", endColorstr="#E761BD", GradientType=1 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
