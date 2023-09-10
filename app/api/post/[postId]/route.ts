@@ -21,9 +21,28 @@ export const DELETE = async (
   try {
     connectToDB();
     await PostModel.findByIdAndRemove(params.postId);
-    console.log("DELTEEEEEEEEEEEEEEEEEEEEEEEEED");
 
     return new Response("Post deleted successfully", { status: 200 });
+  } catch (error) {
+    return new Response("Faild to get posts", { status: 500 });
+  }
+};
+
+export const PATCH = async (
+  req: Request,
+  { params }: { params: { postId: string } }
+) => {
+  const { aiName, description, tags, creatorId } = await req.json();
+  try {
+    connectToDB();
+    const updatedPost = await PostModel.findByIdAndUpdate(params.postId, {
+      aiName,
+      description,
+      tags,
+      creatorId,
+    });
+
+    return new Response(updatedPost, { status: 200 });
   } catch (error) {
     return new Response("Faild to get posts", { status: 500 });
   }

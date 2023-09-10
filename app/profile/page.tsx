@@ -1,28 +1,39 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-// seperate PostList from Posts
-import { PostList } from "@components/posts/Posts";
+import { PostListNew } from "@components/posts/PostList";
+import { useGetPost } from "@hooks/useGetPost";
 
-const page = () => {
+const Profile = () => {
   const { data: session } = useSession();
+  const [step, setStep] = useState<number>(1);
   const router = useRouter();
 
-  useEffect(() => {
-    console.log("now");
-  }, [PostList]);
+  const { isLoading, posts, deletePost } = useGetPost({
+    type: "userPosts",
+    step: step,
+    setStep: setStep,
+  });
+
   useEffect(() => {
     if (!session?.user) {
       router.push("/", { scroll: false });
     }
   }, [session?.user]);
+
   return (
     <section>
       <h2>Profile</h2>
-      <PostList isProfile={true} />
+      <PostListNew
+        setStep={setStep}
+        isLoading={isLoading}
+        posts={posts}
+        isProfile
+        deletePost={deletePost}
+      />
     </section>
   );
 };
 
-export default page;
+export default Profile;

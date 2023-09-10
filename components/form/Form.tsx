@@ -32,8 +32,8 @@ const Form: FC<FromProps> = (props) => {
         <label className="flex items-center">
           <span>About this AI </span>
           <textarea
-            value={post.desc}
-            onChange={(e) => setPost({ ...post, desc: e.target.value })}
+            value={post.description}
+            onChange={(e) => setPost({ ...post, description: e.target.value })}
           />
         </label>
         <label>

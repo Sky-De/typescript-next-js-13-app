@@ -7,6 +7,7 @@ export type PostType = {
   creatorId?: string;
   description: string;
   tags: string;
+  deletePost?: (postId: string) => void;
 };
 
 export type PostsListProps = {

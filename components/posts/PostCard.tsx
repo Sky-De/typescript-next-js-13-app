@@ -10,6 +10,7 @@ const PostCard: FC<PostType> = ({
   tags,
   _id,
   creatorId,
+  deletePost,
 }) => {
   const router = useRouter();
   const handleDeletePost = async () => {
@@ -20,13 +21,19 @@ const PostCard: FC<PostType> = ({
       const res = await fetch(`/api/post/${_id}`, {
         method: "DELETE",
       });
-      // make postList rerender after delteing post--FIX
-      // console.log("Post deleted");
-      // router.push("/");
-      // router.push("/profile");
+
+      console.log("Post deleted");
+      if (deletePost && _id) {
+        const postId = _id.toString();
+        deletePost(postId);
+      }
+      // WHEN THIS HAPPEN HOW TO RERENDER PROFILE PAGE
     } catch (error) {
       console.log(error);
     }
+  };
+  const handleGoToUpdatePage = async () => {
+    router.push(`/update-post/${_id}`);
   };
   return (
     <li className="border p-2">
@@ -39,7 +46,7 @@ const PostCard: FC<PostType> = ({
       {isProfile && (
         <div className="flex gap-2">
           <button onClick={handleDeletePost}>delete</button>
-          <button>edit</button>
+          <button onClick={handleGoToUpdatePage}>edit</button>
         </div>
       )}
     </li>
