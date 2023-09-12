@@ -28,8 +28,8 @@ const Header = () => {
   };
 
   return (
-    <header className="shadow-lg py-1 md:py-2 w-full">
-      <div className="header_content max-w-1400 mx-auto flex items-center gap-3 py-1 px-3">
+    <header className="header shadow-lg py-1 md:py-2 w-full">
+      <div className="header__content max-w-1400 mx-auto flex items-center gap-3 py-1 px-3">
         <Link href="/">
           <h1
             title="Home"

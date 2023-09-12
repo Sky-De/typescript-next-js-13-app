@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xl: "1400px",
+      },
       boxShadow: {
         custom: "inset 10px -50px 94px 0 rgba(199, 199, 199, 0.2)",
       },

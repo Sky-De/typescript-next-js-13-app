@@ -1,9 +1,10 @@
+import Hero from "@components/hero/Hero";
 import Posts from "@components/posts/Posts";
 
 const Home = () => {
   return (
-    <section>
-      <h2>home</h2>
+    <section className="home__page w-full">
+      <Hero />
       <Posts />
     </section>
   );
