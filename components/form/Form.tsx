@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { PostType } from "../../types/global-types";
 import { Dispatch, FC, SetStateAction } from "react";
 
@@ -12,6 +13,10 @@ type FromProps = {
 };
 const Form: FC<FromProps> = (props) => {
   const { type, post, setPost, isSubmitting, handleSubmit } = props;
+  const router = useRouter();
+  const handleCancel = () => {
+    router.back();
+  };
   return (
     <section>
       <h2 className="text-2xl font-bold titleGradiant mt-2">
@@ -48,6 +53,7 @@ const Form: FC<FromProps> = (props) => {
         <button disabled={isSubmitting} type="submit">
           {isSubmitting ? "Submiting..." : "Submit"}
         </button>
+        <button onClick={handleCancel}>cancel</button>
       </form>
     </section>
   );

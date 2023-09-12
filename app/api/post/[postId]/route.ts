@@ -32,14 +32,13 @@ export const PATCH = async (
   req: Request,
   { params }: { params: { postId: string } }
 ) => {
-  const { aiName, description, tags, creatorId } = await req.json();
+  const { aiName, description, tags } = await req.json();
   try {
     connectToDB();
     const updatedPost = await PostModel.findByIdAndUpdate(params.postId, {
       aiName,
       description,
       tags,
-      creatorId,
     });
 
     return new Response(updatedPost, { status: 200 });
