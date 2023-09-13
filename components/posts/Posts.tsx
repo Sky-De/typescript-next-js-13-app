@@ -11,7 +11,10 @@ const Posts: FC = () => {
   const { isLoading, posts } = useGetPost({ step: step, type: "allPosts" });
   return (
     <section>
-      <h2>Posts</h2>
+      <h2 className="hero__title text-xl  text-gray-900">
+        Explore shared <span className="hero__title__gradiant">AI's</span> by
+        Users
+      </h2>
       <form onSubmit={() => {}}>
         <input type="text" />
       </form>

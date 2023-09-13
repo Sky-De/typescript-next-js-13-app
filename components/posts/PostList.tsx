@@ -2,6 +2,7 @@
 import { PostType } from "../../types/global-types";
 import React, { Dispatch, FC, SetStateAction } from "react";
 import PostCard from "./PostCard";
+import Loading from "@components/loading/Loading";
 
 type PostListProps = {
   isProfile?: boolean;
@@ -36,10 +37,13 @@ export const PostListNew: FC<PostListProps> = ({
           deletePost={deletePost}
         />
       ))}
-
-      <button disabled={isLoading} onClick={handleSeeMore}>
-        {isLoading ? "Loading..." : "see more"}
-      </button>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <button disabled={isLoading} onClick={handleSeeMore}>
+          see more
+        </button>
+      )}
     </ul>
   );
 };

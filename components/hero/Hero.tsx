@@ -1,10 +1,15 @@
+"use client";
 import HeroSvg from "../../public/SVG/hero.svg";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+
 const Hero = () => {
+  const { data: session } = useSession();
   return (
     <section
       role="banner"
-      className="hero flex flex-col lg:flex-row-reverse items-center w-full justify-between"
+      className="hero flex flex-col lg:flex-row-reverse items-center w-full justify-between border-b mb-14 pb-16 lg:h-[80vh]"
     >
       <Image
         title="https://storyset.com/"
@@ -23,11 +28,19 @@ const Hero = () => {
             <span className="hero__title__gradiant">!</span>
           </span>
         </h1>
-        <p className="text-gray-400 text-xl mt-6 text-center lg:text-start lg:max-w-[80%]">
-          Discover the boundless potential of AI with a global network of
+        <p className="text-gray-500 text-xl mt-6 text-center lg:text-start lg:max-w-[80%]">
+          Explore the boundless potential of AI with a global network of
           like-minded individuals, all eager to connect, collaborate, and
           collectively shape the future of machine intelligence.
         </p>
+
+        <Link
+          title="create new post"
+          href={session?.user ? "/create-post" : "/auth"}
+          className="callToActionBtn rounded-md text-white hover:translate-y-[2px] ease-in duration-100 text-lg mt-8 w-[fit-content]"
+        >
+          Create Post
+        </Link>
       </div>
     </section>
   );

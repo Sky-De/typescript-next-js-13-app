@@ -3,12 +3,18 @@ import { useSession } from "next-auth/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type GetPostHookProps = {
-  type: "allPosts" | "userPosts" | "onePost";
+  type: "allPosts" | "userPosts" | "onePost" | "searchedPosts";
   step: number;
   setStep?: Dispatch<SetStateAction<number>>;
+  search?: string;
 };
 
-export const useGetPost = ({ step, type, setStep }: GetPostHookProps) => {
+export const useGetPost = ({
+  step,
+  type,
+  setStep,
+  search,
+}: GetPostHookProps) => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { data: session } = useSession();
@@ -64,6 +70,29 @@ export const useGetPost = ({ step, type, setStep }: GetPostHookProps) => {
     }
   };
 
+  const getAndAddTenPostsSearch = async (search: string) => {
+    setIsLoading(true);
+    const bodyData = JSON.stringify({
+      stepNumber: step,
+      userId: session?.user.id,
+    });
+    try {
+      const res = await fetch("api/post/posts", {
+        method: "POST",
+        body: bodyData,
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setPosts([...posts, ...data]);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
     // ALL----------
     if (type === "allPosts") {
@@ -73,6 +102,11 @@ export const useGetPost = ({ step, type, setStep }: GetPostHookProps) => {
     // User's----------
     if (type === "userPosts") {
       getAndAddTenPostsUser();
+    }
+
+    // Search----------
+    if (type === "searchedPosts" && search) {
+      getAndAddTenPostsSearch(search);
     }
   }, [step]);
 
