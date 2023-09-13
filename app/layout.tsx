@@ -3,6 +3,8 @@ import Header from "@components/layout/Header";
 import Providers from "@providers/providers";
 import { useSession } from "next-auth/react";
 import "@styles/globals.css";
+import Footer from "@components/layout/Footer";
+import Wave from "@components/wave/Wave";
 
 export const metedata = {
   title: "",
@@ -18,6 +20,8 @@ const rootLayout = ({ children }: Props): JSX.Element => {
         <Providers>
           <Header />
           <main className="app bg-gray py-16 max-w-[1400px]">{children}</main>
+          <Wave />
+          <Footer />
         </Providers>
       </body>
     </html>

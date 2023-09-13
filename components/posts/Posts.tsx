@@ -11,7 +11,7 @@ const Posts: FC = () => {
   const { isLoading, posts } = useGetPost({ step: step, type: "allPosts" });
   return (
     <section>
-      <h2 className="hero__title text-xl  text-gray-900">
+      <h2 className="hero__title text-2xl  text-gray-900 text-start lg:text-center mb-8">
         Explore shared <span className="hero__title__gradiant">AI's</span> by
         Users
       </h2>

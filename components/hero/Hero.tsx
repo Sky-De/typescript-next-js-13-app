@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
       role="banner"
-      className="hero flex flex-col lg:flex-row-reverse items-center w-full justify-between border-b mb-14 pb-16 lg:h-[80vh]"
+      className="hero flex flex-col lg:flex-row-reverse items-center w-full justify-between mb-14 pb-16 lg:h-[80vh]"
     >
       <Image
         title="https://storyset.com/"
@@ -17,7 +17,7 @@ const Hero = () => {
         alt="Hero"
         className="hero__img hidden md:block"
       />
-      <div className="hero__intro flex flex-col text-4xl">
+      <div className="hero__intro flex flex-col text-4xl mt-24 lg:mt-0">
         <h1 className="hero__title font-bold text-center lg:text-start">
           <span>Discover </span>
           <span className="hero__title__gradiant font-bold">

@@ -36,13 +36,22 @@ const PostCard: FC<PostType> = ({
     router.push(`/update-post/${_id}`);
   };
   return (
-    <li className="border p-2">
-      <p>AI : {aiName}</p>
-      <p>Description : {description}</p>
-      <p>Tags : {tags}</p>
-      <p>{creatorId}</p>
-      <p>{_id}</p>
-      <Link href={`/post-details/${_id}`}>DETAILS</Link>
+    <li className="postCard border rounded-lg flex flex-col gap-4 w-full md:w-[350px] p-4">
+      <div className="postCard__title flex gap-2">
+        <i>icon</i>
+        <p> {aiName}</p>
+      </div>
+      <div className="postCard__desc flex gap-2">
+        <i>icon</i>
+        <p>{description}</p>
+      </div>
+      <div className="postCard__tags flex gap-2 mt-auto">
+        <i>icon</i>
+        <p className="text-[#3cbcab]">{tags}</p>
+      </div>
+      <Link className="text-[#e75fbc] self-end" href={`/post-details/${_id}`}>
+        Details
+      </Link>
       {isProfile && (
         <div className="flex gap-2">
           <button onClick={handleDeletePost}>delete</button>

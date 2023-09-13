@@ -23,28 +23,34 @@ export const PostListNew: FC<PostListProps> = ({
   };
 
   return (
-    <ul className="flex flex-col gap-2">
-      {posts.length < 1 && isLoading && <h6>Loading...</h6>}
-      {posts.map((post) => (
-        <PostCard
-          key={post._id}
-          _id={post._id}
-          aiName={post.aiName}
-          tags={post.tags}
-          creatorId={post.creatorId}
-          description={post.description}
-          isProfile={isProfile}
-          deletePost={deletePost}
-        />
-      ))}
+    <>
+      <ul className="flex flex-wrap gap-3 justify-center">
+        {posts.length < 1 && isLoading && <h6>Loading...</h6>}
+        {posts.map((post) => (
+          <PostCard
+            key={post._id}
+            _id={post._id}
+            aiName={post.aiName}
+            tags={post.tags}
+            creatorId={post.creatorId}
+            description={post.description}
+            isProfile={isProfile}
+            deletePost={deletePost}
+          />
+        ))}
+      </ul>
       {isLoading ? (
         <Loading />
       ) : (
-        <button disabled={isLoading} onClick={handleSeeMore}>
+        <button
+          className="ml-auto mt-3 w-full"
+          disabled={isLoading}
+          onClick={handleSeeMore}
+        >
           see more
         </button>
       )}
-    </ul>
+    </>
   );
 };
 
