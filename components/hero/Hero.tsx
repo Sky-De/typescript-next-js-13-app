@@ -15,7 +15,7 @@ const Hero = () => {
         title="https://storyset.com/"
         src={HeroSvg}
         alt="Hero"
-        className="hero__img"
+        className="hero__img hidden md:block"
       />
       <div className="hero__intro flex flex-col text-4xl">
         <h1 className="hero__title font-bold text-center lg:text-start">
@@ -37,7 +37,7 @@ const Hero = () => {
         <Link
           title="create new post"
           href={session?.user ? "/create-post" : "/auth"}
-          className="callToActionBtn rounded-md text-white hover:translate-y-[2px] ease-in duration-100 text-lg mt-8 w-[fit-content]"
+          className="callToActionBtn rounded-md text-white hover:translate-y-[2px] ease-in duration-100 text-lg mt-16 lg:mt-8 w-[fit-content] self-center lg:self-start"
         >
           Create Post
         </Link>
