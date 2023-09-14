@@ -77,7 +77,7 @@ export const useGetPost = ({
       userId: session?.user.id,
     });
     try {
-      const res = await fetch("api/post/posts", {
+      const res = await fetch(`api/post/posts/`, {
         method: "POST",
         body: bodyData,
       });

@@ -1,11 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="py-10 w-full bg-black text-white grid items-center justify-center gap-8">
-      <h6>link</h6>
-      <h6>link</h6>
-      <h6>link</h6>
-      <h6>link</h6>
-      <h6>link</h6>
+    <footer className="footer py-10 w-full bg-black text-white">
+      <h6 className="footer__hero ml-4">skyDe</h6>
     </footer>
   );
 };

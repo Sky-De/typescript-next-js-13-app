@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Days+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -402,11 +403,7 @@ body::-webkit-scrollbar {
 
   background: linear-gradient(60deg, #84f5e6 10%, #e75fbc 35%);
 
-  background: -moz-linear-gradient(
-    60deg,
-    hsla(172, 85%, 74%, 1) 3%,
-    hsl(319, 74%, 64%) 75%
-  );
+  background: -moz-linear-gradient(60deg, #84f5e6 3%, #e75fbc 75%);
 
   background: -webkit-linear-gradient(
     60deg,
@@ -425,4 +422,11 @@ body::-webkit-scrollbar {
   background-color: #02171b;
   color: #14e7c6; */
   /* color: hsla(319, 74%, 64%, 1); */
+}
+
+/* Footer */
+.footer__hero {
+  font-family: "Satisfy", cursive;
+  font-size: 72px;
+  color: #fff;
 }

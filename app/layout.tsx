@@ -16,10 +16,12 @@ type Props = {
 const rootLayout = ({ children }: Props): JSX.Element => {
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-[100vh]">
         <Providers>
           <Header />
-          <main className="app bg-gray py-16 max-w-[1400px]">{children}</main>
+          <main className="app bg-gray py-16 max-w-[1400px] min-h-[90vh]">
+            {children}
+          </main>
           <Wave />
           <Footer />
         </Providers>
