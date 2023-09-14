@@ -16,6 +16,12 @@ type Props = {
 const rootLayout = ({ children }: Props): JSX.Element => {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet"
+        ></link>
+      </head>
       <body className="min-h-[100vh]">
         <Providers>
           <Header />

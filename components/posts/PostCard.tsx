@@ -13,40 +13,36 @@ const PostCard: FC<PostType> = ({
   deletePost,
 }) => {
   const router = useRouter();
-  const handleDeletePost = async () => {
-    try {
-      console.log("start Post deleted");
-      console.log(_id);
-
-      const res = await fetch(`/api/post/${_id}`, {
-        method: "DELETE",
-      });
-
-      console.log("Post deleted");
-      if (deletePost && _id) {
-        const postId = _id.toString();
-        deletePost(postId);
-      }
-      // WHEN THIS HAPPEN HOW TO RERENDER PROFILE PAGE
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const handleGoToUpdatePage = async () => {
     router.push(`/update-post/${_id}`);
   };
+
+  const limit = 150;
+  const descSummary =
+    description.length < limit
+      ? description
+      : `${description.slice(0, limit)} ...`;
   return (
-    <li className="postCard border rounded-lg flex flex-col gap-4 w-full md:w-[350px] p-4">
-      <div className="postCard__title flex gap-2">
-        <i>icon</i>
-        <p> {aiName}</p>
+    <li className="postCard bg-slate-100 border rounded-lg flex flex-col gap-6 w-full md:w-[350px] p-5 min-h-[300px]">
+      <div className="postCard__title flex gap-3 items-center">
+        <i
+          title="AI Name"
+          className="postCard__icon postCard__icon--name bx bx-brain"
+        ></i>
+        <p className="capitalize font-bold"> {aiName}</p>
       </div>
-      <div className="postCard__desc flex gap-2">
-        <i>icon</i>
-        <p>{description}</p>
+      <div className="postCard__desc flex gap-3">
+        <i
+          title="AI Description"
+          className="postCard__icon postCard__icon--name bx bx-info-circle"
+        ></i>
+        <p>{descSummary}</p>
       </div>
-      <div className="postCard__tags flex gap-2 mt-auto">
-        <i>icon</i>
+      <div className="postCard__tags flex gap-3 mt-auto">
+        <i
+          title="AI Tags"
+          className="postCard__icon postCard__icon--name bx bx-purchase-tag-alt"
+        ></i>
         <p className="text-[#3cbcab]">{tags}</p>
       </div>
       <Link className="text-[#e75fbc] self-end" href={`/post-details/${_id}`}>
@@ -54,7 +50,7 @@ const PostCard: FC<PostType> = ({
       </Link>
       {isProfile && (
         <div className="flex gap-2">
-          <button onClick={handleDeletePost}>delete</button>
+          <Link href={`/deletePost/${_id}`}>Delete</Link>
           <button onClick={handleGoToUpdatePage}>edit</button>
         </div>
       )}

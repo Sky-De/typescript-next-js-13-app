@@ -2,7 +2,7 @@ import PostModel from "@models/post";
 import { connectToDB } from "@utils/database";
 
 export const POST = async (req: Request) => {
-  const countPerStep = 2;
+  const countPerStep = 9;
   const { stepNumber = 1, userId } = await req.json();
   const skipCount = stepNumber * countPerStep - countPerStep;
   try {

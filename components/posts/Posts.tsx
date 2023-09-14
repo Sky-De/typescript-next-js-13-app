@@ -10,9 +10,9 @@ const Posts: FC = () => {
   const [step, setStep] = useState<number>(1);
   const { isLoading, posts } = useGetPost({ step: step, type: "allPosts" });
   return (
-    <section>
+    <section className="">
       <h2 className="hero__title text-2xl  text-gray-900 text-start lg:text-center mb-8">
-        Explore shared <span className="hero__title__gradiant">AI's</span> by
+        Explore shared <span className="hero__title__gradiant">AIs</span> by
         Users
       </h2>
       <form onSubmit={() => {}}>

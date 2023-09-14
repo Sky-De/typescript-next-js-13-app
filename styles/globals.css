@@ -423,10 +423,27 @@ body::-webkit-scrollbar {
   color: #14e7c6; */
   /* color: hsla(319, 74%, 64%, 1); */
 }
+.postCard__icon {
+  font-size: 1.5rem;
+}
 
 /* Footer */
 .footer__hero {
   font-family: "Satisfy", cursive;
   font-size: 72px;
   color: #fff;
+}
+.footer__links--item {
+  transition: transform 0.4s ease;
+}
+.footer__links--item:hover {
+  transform: rotate(360deg);
+}
+
+/* form */
+.form {
+}
+
+.form__item {
+  @apply flex flex-col items-center;
 }
