@@ -10,8 +10,9 @@ const PostCard: FC<PostType> = ({
   tags,
   _id,
   creatorId,
-  deletePost,
 }) => {
+  console.log(tags);
+
   const router = useRouter();
   const handleGoToUpdatePage = async () => {
     router.push(`/update-post/${_id}`);
@@ -23,29 +24,41 @@ const PostCard: FC<PostType> = ({
       ? description
       : `${description.slice(0, limit)} ...`;
   return (
-    <li className="postCard bg-slate-100 border rounded-lg flex flex-col gap-6 w-full md:w-[350px] p-5 min-h-[300px]">
-      <div className="postCard__title flex gap-3 items-center">
+    <li className="postCard bg-[#262626] border rounded-lg flex flex-col gap-6 w-full md:w-[350px] p-5 min-h-[300px]">
+      <div className="postCard__title flex gap-3 items-center text-white">
         <i
           title="AI Name"
           className="postCard__icon postCard__icon--name bx bx-brain"
         ></i>
-        <p className="capitalize font-bold"> {aiName}</p>
+        <p className="capitalize font-bold text-2xl"> {aiName}</p>
       </div>
-      <div className="postCard__desc flex gap-3">
+      <div className="postCard__desc flex gap-3 text-white">
         <i
           title="AI Description"
-          className="postCard__icon postCard__icon--name bx bx-info-circle"
+          className="postCard__icon postCard__icon--desc bx bx-info-circle"
         ></i>
         <p>{descSummary}</p>
       </div>
-      <div className="postCard__tags flex gap-3 mt-auto">
+      <div className="postCard__tags flex gap-3 mt-auto text-white">
         <i
           title="AI Tags"
-          className="postCard__icon postCard__icon--name bx bx-purchase-tag-alt"
+          className="postCard__icon postCard__icon--tags bx bx-purchase-tag-alt"
         ></i>
-        <p className="text-[#3cbcab]">{tags}</p>
+        {/* FIX- replace i with uuid */}
+        {tags.map((tag, i) => (
+          <Link
+            key={i}
+            href={`/search-result/${tag.slice(1, tag.length)}`}
+            className="text-[#3cbcab] hover:text-[#e75fbc]"
+          >
+            {tag}
+          </Link>
+        ))}
       </div>
-      <Link className="text-[#e75fbc] self-end" href={`/post-details/${_id}`}>
+      <Link
+        className="text-[#3cbcab] border border-[#3cbcab] self-end px-2 py-1 hover:border-[#e75fbc] hover:text-[#e75fbc] transition-colors rounded"
+        href={`/post-details/${_id}`}
+      >
         Details
       </Link>
       {isProfile && (

@@ -11,7 +11,7 @@ const PostSchema = new Schema(
       required: [true, "AI name is required."],
     },
     tags: {
-      type: String,
+      type: [String],
       required: [true, "Tag is required."],
     },
     description: {

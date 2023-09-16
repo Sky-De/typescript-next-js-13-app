@@ -326,29 +326,6 @@ body::-webkit-scrollbar {
   color: #fff;
   font-size: 1.85rem;
   font-weight: bold;
-  /* background: hsla(172, 85%, 74%, 1);
-
-  background: linear-gradient(
-    60deg,
-    hsl(172, 85%, 74%) 0%,
-    hsla(319, 74%, 64%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    60deg,
-    hsla(172, 85%, 74%, 1) 0%,
-    hsla(319, 74%, 64%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    60deg,
-    hsla(172, 85%, 74%, 1) 0%,
-    hsla(319, 74%, 64%, 1) 100%
-  );
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#83F5E5", endColorstr="#E761BD", GradientType=1 );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
 }
 
 /* call to actin btn */
@@ -425,6 +402,25 @@ body::-webkit-scrollbar {
 }
 .postCard__icon {
   font-size: 1.5rem;
+  background: hsl(172, 85%, 74%);
+
+  background: linear-gradient(60deg, #84f5e6 35%, rgb(231, 95, 188) 75%);
+
+  background: -moz-linear-gradient(
+    60deg,
+    hsla(172, 85%, 74%, 1) 35%,
+    hsl(319, 74%, 64%) 75%
+  );
+
+  background: -webkit-linear-gradient(
+    60deg,
+    hsla(172, 85%, 74%, 1) 35%,
+    hsla(319, 74%, 64%, 1) 75%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#83F5E5", endColorstr="#E761BD", GradientType=1 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Footer */

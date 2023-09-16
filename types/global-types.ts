@@ -6,7 +6,7 @@ export type PostType = {
   _id?: string;
   creatorId?: string;
   description: string;
-  tags: string;
+  tags: string[];
   deletePost?: (postId: string) => void;
 };
 

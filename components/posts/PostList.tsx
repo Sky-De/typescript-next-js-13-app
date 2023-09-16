@@ -16,7 +16,6 @@ export const PostListNew: FC<PostListProps> = ({
   setStep,
   isLoading,
   posts,
-  deletePost,
 }) => {
   const handleSeeMore = () => {
     setStep((pre) => pre + 1);
@@ -35,7 +34,6 @@ export const PostListNew: FC<PostListProps> = ({
             creatorId={post.creatorId}
             description={post.description}
             isProfile={isProfile}
-            deletePost={deletePost}
           />
         ))}
       </ul>

@@ -13,6 +13,8 @@ type FromProps = {
 };
 const Form: FC<FromProps> = (props) => {
   const { type, post, setPost, isSubmitting, handleSubmit } = props;
+  console.log(post);
+
   const router = useRouter();
   const handleCancel = () => {
     router.back();
@@ -48,9 +50,11 @@ const Form: FC<FromProps> = (props) => {
           <input
             className="form__input border"
             type="text"
-            placeholder="#tag1,#tag2,..."
-            value={post.tags}
-            onChange={(e) => setPost({ ...post, tags: e.target.value })}
+            placeholder="tag for this AI"
+            value={post.tags.join()}
+            onChange={(e) =>
+              setPost({ ...post, tags: e.target.value.split(",") })
+            }
           />
         </label>
         <button disabled={isSubmitting} type="submit">

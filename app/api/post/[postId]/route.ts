@@ -1,4 +1,5 @@
 import PostModel from "@models/post";
+import UserModel from "@models/user";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (
@@ -8,7 +9,11 @@ export const GET = async (
   try {
     connectToDB();
     const post = await PostModel.findById(params.postId);
-    return new Response(JSON.stringify(post), { status: 200 });
+    const owner = await UserModel.findById(post.creatorId);
+
+    return new Response(JSON.stringify({ post: post, owner: owner }), {
+      status: 200,
+    });
   } catch (error) {
     return new Response("Faild to get posts", { status: 500 });
   }

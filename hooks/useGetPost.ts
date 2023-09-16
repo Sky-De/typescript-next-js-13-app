@@ -6,23 +6,18 @@ type GetPostHookProps = {
   type: "allPosts" | "userPosts" | "onePost" | "searchedPosts";
   step: number;
   setStep?: Dispatch<SetStateAction<number>>;
-  search?: string;
+  tagName?: string | undefined | string[];
 };
 
 export const useGetPost = ({
   step,
   type,
   setStep,
-  search,
+  tagName,
 }: GetPostHookProps) => {
   const [posts, setPosts] = useState<PostType[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { data: session } = useSession();
-
-  const deletePost = (postId: string) => {
-    const newPosts = posts.filter((post) => post._id !== postId);
-    setPosts(newPosts);
-  };
 
   const getAndAddTenPostsUser = async () => {
     setIsLoading(true);
@@ -70,14 +65,13 @@ export const useGetPost = ({
     }
   };
 
-  const getAndAddTenPostsSearch = async (search: string) => {
+  const getSearchedPosts = async (tagName: string | undefined | string[]) => {
     setIsLoading(true);
     const bodyData = JSON.stringify({
       stepNumber: step,
-      userId: session?.user.id,
     });
     try {
-      const res = await fetch(`api/post/posts/`, {
+      const res = await fetch(`/api/post/posts/${tagName}`, {
         method: "POST",
         body: bodyData,
       });
@@ -105,10 +99,10 @@ export const useGetPost = ({
     }
 
     // Search----------
-    if (type === "searchedPosts" && search) {
-      getAndAddTenPostsSearch(search);
+    if (type === "searchedPosts" && tagName) {
+      getSearchedPosts(tagName);
     }
   }, [step]);
 
-  return { isLoading, posts, deletePost };
+  return { isLoading, posts };
 };

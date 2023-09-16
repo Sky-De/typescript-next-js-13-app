@@ -8,7 +8,7 @@ import { useState } from "react";
 const INITIAL_POST_STATE: PostType = {
   aiName: "",
   description: "",
-  tags: "",
+  tags: [],
 };
 
 const CreatePost = () => {
@@ -27,6 +27,8 @@ const CreatePost = () => {
       tags: post.tags,
       creatorId: session?.user.id,
     });
+
+    console.log(data);
 
     try {
       const res = await fetch("api/post/new", {
