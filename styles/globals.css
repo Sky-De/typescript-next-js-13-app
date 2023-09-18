@@ -98,7 +98,7 @@ body::-webkit-scrollbar {
 /* Tailwind Styles */
 
 .app {
-  @apply relative flex justify-center items-center flex-col mx-auto px-6;
+  @apply relative mx-auto px-6;
 }
 
 .black_btn {
@@ -337,15 +337,11 @@ body::-webkit-scrollbar {
 
 /* title gradiants */
 .titleGradiant {
-  background: hsl(172, 85%, 74%);
+  background: #84f5e6;
 
   background: linear-gradient(60deg, #84f5e6 0%, rgb(231, 95, 188) 35%);
 
-  background: -moz-linear-gradient(
-    60deg,
-    hsla(172, 85%, 74%, 1) 0%,
-    hsl(319, 74%, 64%) 35%
-  );
+  background: -moz-linear-gradient(60deg, #84f5e6 0%, #e75fbc 35%);
 
   background: -webkit-linear-gradient(
     60deg,
@@ -422,6 +418,29 @@ body::-webkit-scrollbar {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.postCard__icon--tags,
+.postCard__icon--desc {
+  font-size: 1.5rem;
+  background: hsl(172, 85%, 74%);
+
+  background: linear-gradient(60deg, #84f5e6 35%, rgb(120, 112, 117) 75%);
+
+  background: -moz-linear-gradient(
+    60deg,
+    hsla(172, 85%, 74%, 1) 35%,
+    hsl(319, 74%, 64%) 75%
+  );
+
+  background: -webkit-linear-gradient(
+    60deg,
+    hsla(172, 85%, 74%, 1) 55%,
+    #e75fbc 85%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#83F5E5", endColorstr="#E761BD", GradientType=1 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* Footer */
 .footer__hero {
@@ -438,6 +457,11 @@ body::-webkit-scrollbar {
 
 /* form */
 .form {
+}
+
+.form__input {
+  padding: 0.5rem;
+  width: 100%;
 }
 
 .form__item {

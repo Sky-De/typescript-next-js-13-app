@@ -10,19 +10,15 @@ const page = () => {
   const { postId } = useParams();
 
   const handleDeletePost = async () => {
+    setIsDeleteing(true);
     try {
       const res = await fetch(`/api/post/${postId}`, {
         method: "DELETE",
       });
-
-      // if (deletePost && _id) {
-      //   const postId = _id.toString();
-      //   deletePost(postId);
-      // }
-      // WHEN THIS HAPPEN HOW TO RERENDER PROFILE PAGE
     } catch (error) {
       console.log(error);
     } finally {
+      setIsDeleteing(false);
       router.push("/profile");
     }
   };

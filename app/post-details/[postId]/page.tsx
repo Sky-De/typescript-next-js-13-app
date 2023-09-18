@@ -7,6 +7,7 @@ import BackBtn from "@components/btn/BackBtn";
 import Loading from "@components/loading/Loading";
 import Image from "next/image";
 import Avatar from "@public/img/Avatar.png";
+import Link from "next/link";
 
 export type UserType = {
   email: string;
@@ -27,6 +28,8 @@ const page: FC = () => {
         const res = await fetch(`/api/post/${postId}`);
         if (res.ok) {
           const data = await res.json();
+          console.log(data);
+
           setPost(data.post);
           setOwner(data.owner);
         }
@@ -43,26 +46,42 @@ const page: FC = () => {
     console.log(post, owner);
   }, [post, owner]);
   return (
-    <div>
+    <>
       <BackBtn />
-      <div className="content">
-        {isLoading && <Loading />}
-        {!isLoading && (
-          <>
-            <Image
-              className="rounded-full"
-              src={owner?.image || Avatar}
-              alt="avatar"
-              width={30}
-              height={30}
-            />
-            <h4>{owner?.username}</h4>
-            <h4>{owner?.email}</h4>
-            <h4>{post?.aiName}</h4>
-          </>
+      <section className="postDetails min-h-[70vh] flex flex-col items-center justify-center">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="postDetails__content md:flex items-center justify-evenly w-full my-auto">
+            <div className="postDetails__owner mb-6">
+              <h3 className="postDetails__owner--title my-4 font-bold text-2xl titleGradiant">
+                This post created by :
+              </h3>
+              <div className="postDetails__owner--info flex gap-2">
+                <Image
+                  className="rounded-full h-[3rem] w-[3rem]"
+                  src={owner?.image || Avatar}
+                  alt="avatar"
+                  width={30}
+                  height={30}
+                />
+                <div>
+                  <h4 className="text-gray-500">{owner?.username}</h4>
+                  <h4 className="text-gray-500">{owner?.email}</h4>
+                </div>
+              </div>
+            </div>
+            {post && (
+              <PostCard
+                aiName={post.aiName}
+                description={post.description}
+                tags={post.tags}
+              />
+            )}
+          </div>
         )}
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 

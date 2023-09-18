@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="honeycomb">
+    <div className="honeycomb mx-auto my-4">
       <div></div>
       <div></div>
       <div></div>

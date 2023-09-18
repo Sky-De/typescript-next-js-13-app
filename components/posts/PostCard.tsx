@@ -11,8 +11,6 @@ const PostCard: FC<PostType> = ({
   _id,
   creatorId,
 }) => {
-  console.log(tags);
-
   const router = useRouter();
   const handleGoToUpdatePage = async () => {
     router.push(`/update-post/${_id}`);
@@ -45,26 +43,40 @@ const PostCard: FC<PostType> = ({
           className="postCard__icon postCard__icon--tags bx bx-purchase-tag-alt"
         ></i>
         {/* FIX- replace i with uuid */}
-        {tags.map((tag, i) => (
-          <Link
-            key={i}
-            href={`/search-result/${tag.slice(1, tag.length)}`}
-            className="text-[#3cbcab] hover:text-[#e75fbc]"
-          >
-            {tag}
-          </Link>
-        ))}
+        <ul className="flex gap-2 flex-wrap">
+          {tags.map((tag, i) => (
+            <Link
+              key={i}
+              href={`/search-result/${tag.slice(1, tag.length)}`}
+              className="text-[#3cbcab] hover:text-[#e75fbc]"
+            >
+              {tag}
+            </Link>
+          ))}
+        </ul>
       </div>
-      <Link
-        className="text-[#3cbcab] border border-[#3cbcab] self-end px-2 py-1 hover:border-[#e75fbc] hover:text-[#e75fbc] transition-colors rounded"
-        href={`/post-details/${_id}`}
-      >
-        Details
-      </Link>
+      {!isProfile && (
+        <Link
+          className="text-[#3cbcab] border border-[#3cbcab] self-end px-2 py-1 hover:border-[#e75fbc] hover:text-[#e75fbc] transition-colors rounded"
+          href={`/post-details/${_id}`}
+        >
+          Details
+        </Link>
+      )}
       {isProfile && (
-        <div className="flex gap-2">
-          <Link href={`/deletePost/${_id}`}>Delete</Link>
-          <button onClick={handleGoToUpdatePage}>edit</button>
+        <div className="flex gap-2 justify-end">
+          <Link
+            className="text-red-600 border border-red-600 rounded py-1 px-3 hover:opacity-50"
+            href={`/deletePost/${_id}`}
+          >
+            Delete
+          </Link>
+          <button
+            className=" rounded py-1 px-3 hover:opacity-50 text-[#3cbcab] border border-[#3cbcab]"
+            onClick={handleGoToUpdatePage}
+          >
+            Edit
+          </button>
         </div>
       )}
     </li>

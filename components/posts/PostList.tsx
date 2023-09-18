@@ -24,7 +24,7 @@ export const PostListNew: FC<PostListProps> = ({
   return (
     <>
       <ul className="flex flex-wrap gap-3 justify-center">
-        {posts.length < 1 && isLoading && <h6>Loading...</h6>}
+        {/* {posts.length < 1 && isLoading && <h6>Loading...</h6>} */}
         {posts.map((post) => (
           <PostCard
             key={post._id}
@@ -40,71 +40,20 @@ export const PostListNew: FC<PostListProps> = ({
       {isLoading ? (
         <Loading />
       ) : (
-        <button
-          className="ml-auto mt-3 w-full"
-          disabled={isLoading}
-          onClick={handleSeeMore}
-        >
-          see more
-        </button>
+        <>
+          {posts.length > 0 ? (
+            <button
+              className="ml-auto mt-12 text-lg border-b border-b-white hover:border-b-[#84f5e6] w-fit mx-auto block py-1 text-[#e75fbc]"
+              disabled={isLoading}
+              onClick={handleSeeMore}
+            >
+              see more
+            </button>
+          ) : (
+            <span>There is no post yet!</span>
+          )}
+        </>
       )}
     </>
   );
 };
-
-// const Posts = () => {
-//   const [posts, setPosts] = useState<PostType[]>([]);
-//   const [step, setStep] = useState<number>(1);
-//   const [isGettingPosts, setIsGettingPosts] = useState<boolean>(false);
-//   const { data: session } = useSession();
-
-//     useEffect(() => {
-//       const getAndAddTenPosts = async () => {
-//         setIsGettingPosts(true);
-//         const data = JSON.stringify({
-//           stepNumber: step,
-//           userId: session?.user.id,
-//         });
-//         try {
-//           if (1) {
-//             const res = await fetch("api/post/posts", {
-//               method: "POST",
-//               body: data,
-//             });
-
-//             if (res.ok) {
-//               const data = await res.json();
-//               setPosts([...posts, ...data]);
-//             }
-//           } else {
-//             const res = await fetch("api/post/user/posts", {
-//               method: "POST",
-//               body: data,
-//             });
-//             if (res.ok) {
-//               const data = await res.json();
-//               setPosts([...posts, ...data]);
-//             }
-//           }
-//         } catch (error) {
-//           console.log(error);
-//         } finally {
-//           setIsGettingPosts(false);
-//           console.log(posts);
-//         }
-//       };
-//       getAndAddTenPosts();
-//     }, [step]);
-
-//   return (
-//     <section>
-//       <h2>Posts</h2>
-//       <form onSubmit={() => {}}>
-//         <input type="text" />
-//       </form>
-//       <PostList posts={posts} setStep={setStep} />
-//     </section>
-//   );
-// };
-
-// export default Posts;

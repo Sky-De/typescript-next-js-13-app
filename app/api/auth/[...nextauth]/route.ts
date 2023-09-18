@@ -6,13 +6,13 @@ import UserModel from "@models/user";
 
 const handler = NextAuth({
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-    }),
     GithubProvider({
       clientId: process.env.GITHUB_ID || "",
       clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
   callbacks: {
@@ -27,7 +27,17 @@ const handler = NextAuth({
 
       return session;
     },
-    async signIn({ profile }) {
+    async signIn(params: {
+      user: any; // Change to 'any' type
+      account: any; // Change to 'any' type
+      profile?: any; // Change to 'any' type
+      email?: {
+        verificationRequest?: boolean;
+      };
+      credentials?: Record<string, any>;
+    }) {
+      const { profile } = params;
+      console.log(profile);
       try {
         await connectToDB();
 
@@ -36,10 +46,12 @@ const handler = NextAuth({
 
         // create user
         if (!userExist) {
+          console.log(profile?.avatar_url);
+
           await UserModel.create({
             email: profile?.email,
             username: profile?.name?.replace(" ", "").toLowerCase(),
-            image: profile?.image,
+            image: profile?.avatar_url,
           });
         }
 

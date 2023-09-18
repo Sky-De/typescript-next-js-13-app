@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header shadow-lg py-1 md:py-2 w-full">
+    <header className="header shadow-lg py-2 md:py-3 w-full">
       <div className="header__content max-w-1400 mx-auto flex items-center gap-3 py-1 px-3">
         <Link href="/">
           <h1
@@ -36,7 +36,8 @@ const Header = () => {
             className="logo cursor-pointer"
             onClick={handleHomeBtn}
           >
-            AI-Share
+            <span>AI-S</span>
+            <span className="hidden SE:inline-block">hare</span>
           </h1>
         </Link>
 

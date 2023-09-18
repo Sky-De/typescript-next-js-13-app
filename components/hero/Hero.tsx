@@ -17,7 +17,7 @@ const Hero = () => {
         alt="Hero"
         className="hero__img hidden md:block"
       />
-      <div className="hero__intro flex flex-col text-4xl mt-24 lg:mt-0">
+      <div className="hero__intro flex flex-col text-4xl mt-10 lg:mt-0">
         <h1 className="hero__title font-bold text-center lg:text-start">
           <span>Discover </span>
           <span className="hero__title__gradiant font-bold">

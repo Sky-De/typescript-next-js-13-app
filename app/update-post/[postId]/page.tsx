@@ -3,28 +3,34 @@ import Form from "@components/form/Form";
 import { PostType } from "../../../types/global-types";
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Loading from "@components/loading/Loading";
 
 const UpdatePost = () => {
   const router = useRouter();
   const { postId } = useParams();
   const [isSubmitting, setIsSubmittng] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [post, setPost] = useState<PostType>({
     aiName: "",
     description: "",
-    tags: "",
+    tags: [],
     _id: "",
   });
 
   useEffect(() => {
     const getPostById = async () => {
+      setIsLoading(true);
       try {
         const res = await fetch(`/api/post/${postId}`);
         if (res.ok) {
           const data = await res.json();
-          setPost(data);
+
+          setPost(data.post);
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     getPostById();
@@ -59,13 +65,17 @@ const UpdatePost = () => {
   };
   return (
     <div>
-      <Form
-        post={post}
-        setPost={setPost}
-        type="Edit"
-        handleSubmit={handleSubmit}
-        isSubmitting={isSubmitting}
-      />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Form
+          post={post}
+          setPost={setPost}
+          type="Edit"
+          handleSubmit={handleSubmit}
+          isSubmitting={isSubmitting}
+        />
+      )}
     </div>
   );
 };
