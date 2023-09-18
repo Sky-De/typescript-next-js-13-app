@@ -23,7 +23,7 @@ const page = () => {
     <section className="searchReslts">
       <BackBtn />
       <h2 className="titleGradiant text-2xl font-bold w-fit my-10 mx-auto">
-        Results for {tagName}
+        Posts with #{tagName} tag
       </h2>
       <PostListNew isLoading={isLoading} posts={posts} setStep={setStep} />
     </section>

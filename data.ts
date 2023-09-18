@@ -1,3 +1,4 @@
+// FIX-remove this
 export const AIs = [
   {
     aiName: "AlphaMind",
@@ -13,9 +14,9 @@ export const AIs = [
     creatorId: "65084cc575fe44bc115678af",
     tags: [
       "tech",
-      "#quantum computing",
-      "#scientific research",
-      "#quantum physics",
+      "#quantum-computing",
+      "#scientific-research",
+      "#quantum-physics",
     ],
   },
   {
@@ -30,14 +31,14 @@ export const AIs = [
     description:
       "DataDroid is a data analysis AI capable of processing and deriving insights from large datasets.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["#data", "#data analysis", "#big data", "#insights"],
+    tags: ["#data", "#data-analysis", "#big-data", "#insights"],
   },
   {
     aiName: "NeuroNaut",
     description:
       "NeuroNaut is an AI system that simulates neural networks for neuroscience research.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["tech", "#neuroscience", "#neural networks", "#research"],
+    tags: ["tech", "#neuroscience", "#neural-networks", "#research"],
   },
   {
     aiName: "SynthoSapien",
@@ -67,9 +68,9 @@ export const AIs = [
     creatorId: "65084cc575fe44bc115678af",
     tags: [
       "#logic",
-      "#computer vision",
-      "#autonomous vehicles",
-      "#image recognition",
+      "#computer-vision",
+      "#autonomous-vehicles",
+      "#image-recognition",
     ],
   },
   {
@@ -84,42 +85,42 @@ export const AIs = [
     description:
       "NanoNeura is a miniature AI designed for medical applications, including diagnostics and drug discovery.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["data", "#medical", "#diagnostics", "#drug discovery"],
+    tags: ["data", "#medical", "#diagnostics", "#drug-discovery"],
   },
   {
     aiName: "DataDyno",
     description:
       "DataDyno is a versatile AI platform for data analytics, visualization, and reporting.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["#data", "#data analytics", "#visualization", "#reporting"],
+    tags: ["#data", "#data-analytics", "#visualization", "#reporting"],
   },
   {
     aiName: "IntelliBot",
     description:
       "IntelliBot is an intelligent robotic assistant designed for household tasks and automation.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["#logic", "#robotics", "#household tasks", "#automation"],
+    tags: ["#logic", "#robotics", "#household-tasks", "#automation"],
   },
   {
     aiName: "CyberSage",
     description:
       "CyberSage is an AI cybersecurity expert specializing in threat detection and prevention.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["#logic", "#cybersecurity", "#threat detection", "#prevention"],
+    tags: ["#logic", "#cybersecurity", "#threat-detection", "#prevention"],
   },
   {
     aiName: "ThinkMaster",
     description:
       "ThinkMaster is an AI system built to simulate creative thinking and brainstorming processes.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["#creative thinking", "#brainstorming", "#ideation"],
+    tags: ["#creative-thinking", "#brainstorming", "#ideation"],
   },
   {
     aiName: "BrainiacBot",
     description:
       "BrainiacBot is an AI chatbot that answers general knowledge questions and provides trivia.",
     creatorId: "65084cc575fe44bc115678af",
-    tags: ["#logic", "#chatbot", "#general knowledge", "#trivia"],
+    tags: ["#logic", "#chatbot", "#general-knowledge", "#trivia"],
   },
   {
     aiName: "LogicLexicon",
@@ -130,8 +131,8 @@ export const AIs = [
       "#logic",
       "#language",
       "#NLP",
-      "#language processing",
-      "#semantic analysis",
+      "#language-processing",
+      "#semantic-analysis",
     ],
   },
 ];

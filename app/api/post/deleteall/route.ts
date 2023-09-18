@@ -1,5 +1,6 @@
 import PostModel from "@models/post";
 import { connectToDB } from "@utils/database";
+// FIX--remove this
 
 export const DELETE = async (req: Request) => {
   try {

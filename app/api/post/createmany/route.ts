@@ -2,6 +2,7 @@ import { AIs } from "@data";
 import PostModel from "@models/post";
 import { connectToDB } from "@utils/database";
 import { NextResponse } from "next/server";
+// FIX-remove this
 
 export const POST = async (req: Request) => {
   try {
