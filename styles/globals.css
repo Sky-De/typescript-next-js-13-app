@@ -331,7 +331,7 @@ body::-webkit-scrollbar {
 /* call to actin btn */
 .callToActionBtn {
   padding: 0.25rem 1rem;
-  background-color: hsla(319, 74%, 64%);
+  background-color: #e75fbc;
   /* background-color: hsl(172, 85%, 74%); */
 }
 

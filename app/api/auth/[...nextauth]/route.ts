@@ -37,7 +37,6 @@ const handler = NextAuth({
       credentials?: Record<string, any>;
     }) {
       const { profile } = params;
-      console.log(profile);
       try {
         await connectToDB();
 
