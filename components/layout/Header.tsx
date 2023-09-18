@@ -59,7 +59,7 @@ const Header = () => {
         </button>
 
         {session?.user && (
-          <Link href="/profile" title="profile" as={"image"}>
+          <Link href="/profile" title="profile">
             <Image
               className="rounded-full"
               width={45}
