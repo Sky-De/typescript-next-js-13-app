@@ -27,8 +27,6 @@ const page = () => {
 
   return (
     <div className="flex flex-col gap-5 text w-full h-[80vh] items-center justify-center">
-      {/* FIX--replace with loading component */}
-
       {!providers ? (
         <Loading />
       ) : (

@@ -10,8 +10,6 @@ import Avatar from "@public/img/Avatar.png";
 const Header = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  // console.log(session?.user);
-  // FIX-remove this log
 
   const handleAuth = () => {
     // isLogin
@@ -61,7 +59,7 @@ const Header = () => {
         </button>
 
         {session?.user && (
-          <Link href="/profile" title="profile">
+          <Link href="/profile" title="profile" as={"image"}>
             <Image
               className="rounded-full"
               width={45}

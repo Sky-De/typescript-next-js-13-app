@@ -2,6 +2,7 @@ import { PostType } from "../../types/global-types";
 import { FC } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { v4 as uuid } from "uuid";
 
 const PostCard: FC<PostType> = ({
   isProfile,
@@ -46,7 +47,7 @@ const PostCard: FC<PostType> = ({
         <ul className="flex gap-2 flex-wrap">
           {tags.map((tag, i) => (
             <Link
-              key={i}
+              key={uuid()}
               href={`/search-result/${tag.slice(1, tag.length)}`}
               className="text-[#3cbcab] hover:text-[#e75fbc]"
             >

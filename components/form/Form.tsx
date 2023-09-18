@@ -3,8 +3,6 @@ import { PostType } from "../../types/global-types";
 import { Dispatch, FC, SetStateAction } from "react";
 import Loading from "@components/loading/Loading";
 
-// FIX--this is duplicated
-
 type FromProps = {
   type: "Create" | "Edit";
   post: PostType;
