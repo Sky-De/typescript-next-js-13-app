@@ -43,7 +43,7 @@ const Header = () => {
           <Link
             title="create new post"
             href="/create-post"
-            className="callToActionBtn rounded-md text-white hover:translate-y-[-2px] ease-in duration-100 ml-auto"
+            className="py-1 px-4 bg-[#e75fbc] rounded-md text-white hover:translate-y-[-2px] ease-in duration-100 ml-auto"
           >
             Create Post
           </Link>
