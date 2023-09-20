@@ -17,11 +17,9 @@ const Profile = () => {
     setStep: setStep,
   });
 
-  // useEffect(() => {
-  //   if (!session?.user) {
-  //     router.push("/", { scroll: false });
-  //   }
-  // }, [session?.user]);
+  useEffect(() => {
+    console.log(session?.user);
+  }, [session?.user]);
 
   return (
     <section className="">
