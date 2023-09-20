@@ -17,11 +17,11 @@ const Profile = () => {
     setStep: setStep,
   });
 
-  useEffect(() => {
-    if (!session?.user) {
-      router.push("/", { scroll: false });
-    }
-  }, [session?.user]);
+  // useEffect(() => {
+  //   if (!session?.user) {
+  //     router.push("/", { scroll: false });
+  //   }
+  // }, [session?.user]);
 
   return (
     <section className="">

@@ -19,6 +19,7 @@ const Header = () => {
     }
     // isLogout
     signOut();
+    router.push("/", { scroll: false });
   };
 
   const handleHomeBtn = () => {
