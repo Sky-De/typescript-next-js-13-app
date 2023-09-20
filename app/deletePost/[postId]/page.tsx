@@ -23,8 +23,8 @@ const page = () => {
     }
   };
   return (
-    <section className="border h-[75vh] flex justify-center items-center gap-10 flex-col">
-      <h3 className=" text-2xl font-bold">
+    <section className="h-[75vh] flex justify-center items-center gap-10 flex-col">
+      <h3 className=" text-2xl font-bold text-center">
         Are you sure about delete this post ?
       </h3>
       <div className="flex gap-10">
