@@ -9,12 +9,12 @@ import BackBtn from "@components/btn/BackBtn";
 const Profile = () => {
   const { data: session } = useSession();
   const [step, setStep] = useState<number>(1);
+  const router = useRouter();
 
   const { isLoading, posts } = useGetPost({
     type: "userPosts",
     step: step,
     setStep: setStep,
-    userId: session?.user.id,
   });
 
   useEffect(() => {

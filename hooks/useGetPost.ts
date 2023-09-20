@@ -7,7 +7,6 @@ type GetPostHookProps = {
   step: number;
   setStep?: Dispatch<SetStateAction<number>>;
   tagName?: string | undefined | string[];
-  userId?: string | undefined;
 };
 
 export const useGetPost = ({
@@ -15,7 +14,6 @@ export const useGetPost = ({
   type,
   setStep,
   tagName,
-  userId,
 }: GetPostHookProps) => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -25,7 +23,7 @@ export const useGetPost = ({
     setIsLoading(true);
     const bodyData = JSON.stringify({
       stepNumber: step,
-      userId: userId,
+      userId: session?.user.id,
     });
     try {
       const res = await fetch("api/post/user/posts", {
@@ -104,7 +102,7 @@ export const useGetPost = ({
     if (type === "searchedPosts" && tagName) {
       getSearchedPosts(tagName);
     }
-  }, [step]);
+  }, [step, session?.user]);
 
   return { isLoading, posts };
 };
