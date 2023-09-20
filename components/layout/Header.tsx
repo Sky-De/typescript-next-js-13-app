@@ -15,11 +15,10 @@ const Header = () => {
     // isLogin
     if (!session?.user) {
       router.push("/auth", { scroll: false });
-      return;
+    } else {
+      // isLogout
+      signOut();
     }
-    // isLogout
-    signOut();
-    router.push("/", { scroll: false });
   };
 
   const handleHomeBtn = () => {
