@@ -21,6 +21,10 @@ const Profile = () => {
     console.log(session?.user);
   }, [session?.user]);
 
+  useEffect(() => {
+    console.log(posts);
+  }, [posts]);
+
   return (
     <section className="">
       <BackBtn />
