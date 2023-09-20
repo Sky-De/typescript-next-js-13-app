@@ -23,12 +23,25 @@ const page = () => {
     }
   };
   return (
-    <section>
-      <h3>Are you sure about delete this post ?</h3>
-      <button disabled={isDeleteing} onClick={handleDeletePost}>
-        Delete
-      </button>
-      <Link href="/profile">Cancel</Link>
+    <section className="border h-[75vh] flex justify-center items-center gap-10 flex-col">
+      <h3 className=" text-2xl font-bold">
+        Are you sure about delete this post ?
+      </h3>
+      <div className="flex gap-10">
+        <Link
+          className="text-emerald-500 text-xl border px-2 py-1 border-emerald-500 rounded hover:opacity-50"
+          href="/profile"
+        >
+          Cancel
+        </Link>
+        <button
+          className="text-red-500 text-xl border px-2 py-1 border-red-500 rounded hover:opacity-50"
+          disabled={isDeleteing}
+          onClick={handleDeletePost}
+        >
+          Delete
+        </button>
+      </div>
       {isDeleteing && <Loading />}
     </section>
   );
