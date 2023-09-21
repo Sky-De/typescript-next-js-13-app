@@ -28,7 +28,6 @@ const page: FC = () => {
         const res = await fetch(`/api/post/${postId}`);
         if (res.ok) {
           const data = await res.json();
-          console.log(data);
 
           setPost(data.post);
           setOwner(data.owner);

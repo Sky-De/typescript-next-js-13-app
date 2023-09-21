@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
   const { aiName, description, tags, creatorId } = await req.json();
-  console.log(tags);
 
   try {
     const newPost = new PostModel({
@@ -13,7 +12,6 @@ export const POST = async (req: Request) => {
       tags: tags,
       creatorId,
     });
-    console.log(newPost);
 
     connectToDB();
     await newPost.save();

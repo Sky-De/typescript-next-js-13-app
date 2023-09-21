@@ -16,7 +16,6 @@ export const POST = async (
       .skip(skipCount)
       .limit(countPerStep);
 
-    console.log(posts);
 
     return new Response(JSON.stringify(posts), { status: 200 });
   } catch (error) {

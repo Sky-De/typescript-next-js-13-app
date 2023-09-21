@@ -43,9 +43,8 @@ const PostCard: FC<PostType> = ({
           title="AI Tags"
           className="postCard__icon postCard__icon--tags bx bx-purchase-tag-alt"
         ></i>
-        {/* FIX- replace i with uuid */}
         <ul className="flex gap-2 flex-wrap">
-          {tags.map((tag, i) => (
+          {tags.map((tag) => (
             <Link
               key={uuid()}
               href={`/search-result/${tag.slice(1, tag.length)}`}

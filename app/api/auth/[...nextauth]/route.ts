@@ -45,7 +45,6 @@ const handler = NextAuth({
 
         // create user
         if (!userExist) {
-          console.log(profile?.avatar_url);
 
           await UserModel.create({
             email: profile?.email,
