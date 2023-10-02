@@ -21,6 +21,10 @@ const rootLayout = ({ children }: Props): JSX.Element => {
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
         ></link>
+        <meta
+          name="google-site-verification"
+          content="i5moDPpp8TD7EsgCuYVA5g2AmahVnDaOpJGvESAa9Ms"
+        />
       </head>
       <body className="min-h-[100vh]">
         <Providers>
