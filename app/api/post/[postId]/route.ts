@@ -15,7 +15,7 @@ export const GET = async (
       status: 200,
     });
   } catch (error) {
-    return new Response("Faild to get posts", { status: 500 });
+    return new Response("Faild to get post", { status: 500 });
   }
 };
 
@@ -29,7 +29,7 @@ export const DELETE = async (
 
     return new Response("Post deleted successfully", { status: 200 });
   } catch (error) {
-    return new Response("Faild to get posts", { status: 500 });
+    return new Response("Faild to delete post", { status: 500 });
   }
 };
 
@@ -48,6 +48,6 @@ export const PATCH = async (
 
     return new Response(updatedPost, { status: 200 });
   } catch (error) {
-    return new Response("Faild to get posts", { status: 500 });
+    return new Response("Faild to update post", { status: 500 });
   }
 };
